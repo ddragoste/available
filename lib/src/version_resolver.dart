@@ -16,8 +16,7 @@ class VersionResolver {
   /// Returns the mayor release of the current iOS version
   Future<int> getIOSVersion() async {
     final info = await _plugin.iosInfo;
-    final mayorRelease = info.systemVersion?.split(".").first;
-    if (mayorRelease == null) throw Exception("mayor release is null");
+    final mayorRelease = info.systemVersion.split(".").first;
     return int.parse(mayorRelease);
   }
 }
